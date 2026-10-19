@@ -1,0 +1,48 @@
+[project]
+name = "aegis-autonomous-soc-platform"
+version = "1.0.0"
+description = "AEGIS: Autonomous Multi-Agent SOC, Neural SIEM Anomaly Detection, MITRE ATT&CK Hybrid RAG & Guardrailed SOAR Platform."
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+    { name = "Erfan Saraee", email = "erfansaraee4102@gmail.com" }
+]
+dependencies = [
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.30.0",
+    "pydantic>=2.9.0",
+    "pydantic-settings>=2.5.0",
+    "sqlalchemy[asyncio]>=2.0.35",
+    "aiosqlite>=0.20.0",
+    "alembic>=1.13.3",
+    "redis>=5.1.0",
+    "celery>=5.4.0",
+    "httpx>=0.27.2",
+    "numpy>=1.26.0",
+    "pandas>=2.2.0",
+    "scikit-learn>=1.5.2",
+    "xgboost>=2.1.1",
+    "torch>=2.2.0",
+    "langgraph>=0.2.35",
+    "langchain-core>=0.3.10",
+    "langsmith>=0.1.130",
+    "fastmcp>=0.3.0",
+    "gradio>=5.0.0",
+    "plotly>=5.24.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3.0",
+    "pytest-asyncio>=0.24.0",
+    "ruff>=0.6.0",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"

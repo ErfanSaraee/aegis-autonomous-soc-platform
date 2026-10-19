@@ -1,0 +1,48 @@
+# --- Python & Bytecode ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# --- Virtual Environments ---
+.venv/
+venv/
+env/
+
+# --- Environment Variables & Secrets ---
+.env
+.env.local
+.env.production
+
+# --- Databases, Vector Caches & ML Artifacts ---
+*.db
+*.sqlite3
+*.db-journal
+*.pt
+*.pth
+*.joblib
+artifacts/
+chroma_db/
+gradio_cached_examples/
+
+# --- Next.js / Node.js Frontend ---
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/build/
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# --- Testing, Coverage & Linters ---
+.pytest_cache/
+.coverage
+htmlcov/
+.ruff_cache/
+.mypy_cache/
+
+# --- IDEs & OS ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
