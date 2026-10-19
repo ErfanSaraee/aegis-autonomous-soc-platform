@@ -8,6 +8,11 @@ from app.agents.dspy_triage_compiler import (
     DSPY_COMPILED_SOC_INVARIANTS,
     dspy_triage_compiler,
 )
+from app.agents.langgraph_soc_commander import (
+    LangGraphSOCCommander,
+    SOCInvestigationGraphState,
+    langgraph_soc_commander,
+)
 
 __all__ = [
     "SOC_OSINT_CREW",
@@ -16,4 +21,7 @@ __all__ = [
     "DSPY_COMPILED_SOC_INVARIANTS",
     "DSPySOCTriageCompiler",
     "dspy_triage_compiler",
+    "SOCInvestigationGraphState",
+    "LangGraphSOCCommander",
+    "langgraph_soc_commander",
 ]
