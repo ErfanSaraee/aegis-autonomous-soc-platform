@@ -13,6 +13,18 @@
 
 ---
 
+## 🖥️ Live Platform Previews
+
+### 1. Next.js 14 SOC Command Center (`TypeScript` + `Tailwind CSS`)
+![Next.js SOC Command Center](assets/nextjs_soc_dashboard.jpg)
+
+### 2. Gradio 5 & Plotly Neural Attention & AST Workbench
+![Gradio Neural Workbench](assets/gradio_neural_workbench.jpg)
+
+### 3. FastAPI OpenAPI 3.1 & A2A Gateway
+![FastAPI Swagger UI](assets/fastapi_swagger_docs.jpg)
+
+
 ## 🏗️ End-to-End 7-Node LangGraph & Full-Stack Architecture
 
 ```mermaid
