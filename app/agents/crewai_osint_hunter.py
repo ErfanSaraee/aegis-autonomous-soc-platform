@@ -1,7 +1,7 @@
 """CrewAI Role-Based Threat Hunting & OSINT Web Search Enrichment Crew for AEGIS SOC."""
 
-from dataclasses import dataclass
 import ipaddress
+from dataclasses import dataclass
 
 import httpx
 from langsmith import traceable

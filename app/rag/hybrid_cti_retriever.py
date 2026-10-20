@@ -1,8 +1,8 @@
 """Hybrid Threat Intelligence RAG Engine combining Dense Vectors (pgvector/Pinecone/Chroma) + BM25 via RRF."""
 
-from collections import Counter
 import math
 import re
+from collections import Counter
 
 import numpy as np
 

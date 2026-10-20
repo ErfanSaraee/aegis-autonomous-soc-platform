@@ -8,9 +8,9 @@ from sqlalchemy import pool
 from sqlalchemy.engine import Connection
 from sqlalchemy.ext.asyncio import async_engine_from_config
 
+import app.models  # noqa: F401 - Ensure all ORM models are registered on Base.metadata
 from app.core.config import settings
 from app.db.session import Base
-import app.models  # noqa: F401 - Ensure all ORM models are registered on Base.metadata
 
 config = context.config
 config.set_main_option("sqlalchemy.url", settings.DATABASE_URL)

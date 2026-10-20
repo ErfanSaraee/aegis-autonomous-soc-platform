@@ -16,13 +16,12 @@ from app.models.soc_models import (
     IncidentSeverity,
     IncidentStatus,
     LLMProviderChoice,
-    MITRETactic,
     SOARPlaybookExecutionLog,
     SOCIncidentRecord,
 )
 from app.schemas.soc import (
-    ASTPlaybookVerification,
     AgentExecutionStep,
+    ASTPlaybookVerification,
     DSPyTriageCalibration,
     HITLApprovalRequest,
     LogGuardrailReport,

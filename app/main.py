@@ -10,7 +10,8 @@ from sqlalchemy import func, select
 
 from app.agents.langgraph_soc_commander import langgraph_soc_commander
 from app.api.v1.presets import APT_SIMULATION_PRESETS
-from app.api.v1.soc_endpoints import persist_incident_response, router as soc_v1_router
+from app.api.v1.soc_endpoints import persist_incident_response
+from app.api.v1.soc_endpoints import router as soc_v1_router
 from app.core.config import settings
 from app.core.logging import get_logger, setup_logging
 from app.db.session import AsyncSessionLocal, engine, init_db

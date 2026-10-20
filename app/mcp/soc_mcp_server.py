@@ -1,8 +1,8 @@
 """FastMCP server & A2A discovery card exposing SOAR containment tools, MITRE RAG, and AST verification."""
 
+import uuid
 from datetime import datetime, timezone
 from typing import Any
-import uuid
 
 from fastmcp import FastMCP
 

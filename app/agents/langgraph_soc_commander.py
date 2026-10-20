@@ -1,9 +1,9 @@
 """7-Node LangGraph Autonomous SOC Investigation & Guardrailed SOAR State Machine."""
 
-from datetime import datetime, timezone
 import time
-from typing import TypedDict
 import uuid
+from datetime import datetime, timezone
+from typing import TypedDict
 
 from langgraph.graph import END, START, StateGraph
 from langsmith import traceable
@@ -21,8 +21,8 @@ from app.models.soc_models import (
 )
 from app.rag.hybrid_cti_retriever import hybrid_mitre_retriever
 from app.schemas.soc import (
-    ASTPlaybookVerification,
     AgentExecutionStep,
+    ASTPlaybookVerification,
     DSPyTriageCalibration,
     LogGuardrailReport,
     MITREIntelligenceHit,
@@ -278,7 +278,7 @@ async def tier3_ast_critic_and_hitl_gate_node(
 ) -> SOCInvestigationGraphState:
     """Node 7: Formally verify SOAR Python script via AST sandbox (self-healing if unsafe) & enforce HITL gate."""
     t0 = time.perf_counter()
-    req = state["request"]
+    state["request"]
     playbook_code = state["soar_python_playbook"]
     ast_res = soar_ast_sandbox.verify_playbook(playbook_code)
 
@@ -294,8 +294,8 @@ async def tier3_ast_critic_and_hitl_gate_node(
             "    return {\n"
             "        'incident_id': incident_id,\n"
             "        'containment_actions': [\n"
-            f"            f'FIREWALL_BLOCK_IP: {{source_ip}}',\n"
-            f"            f'EDR_ISOLATE_HOST: {{target_host}}',\n"
+            "            f'FIREWALL_BLOCK_IP: {source_ip}',\n"
+            "            f'EDR_ISOLATE_HOST: {target_host}',\n"
             "        ],\n"
             "        'status': 'AST_SELF_HEALED_VERIFIED',\n"
             "    }\n"

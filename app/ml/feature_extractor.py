@@ -66,7 +66,7 @@ _LATERAL_C2_KEYWORDS = {
     "psexec", "wmic", "cobaltstrike", "beacon", "meterpreter", "downloadstring", "kerberoast", "smb"
 }
 _OBFUSCATION_PATTERN = re.compile(
-    r"(?:-enc|-encodedcommand|base64|frombase64string|[A-Za-z0-9+/]{32,}={0,2})", re.I)
+    r"(?:-enc|-encodedcommand|base64|frombase64string|[A-Za-z0-9+/]{32,}={0,2})", re.IGNORECASE)
 
 
 class SOCTelemetryFeatureExtractor:

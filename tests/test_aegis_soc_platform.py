@@ -3,8 +3,6 @@
 import pytest
 from httpx import ASGITransport, AsyncClient
 
-from app.agents.crewai_osint_hunter import crewai_osint_hunter
-from app.agents.dspy_triage_compiler import dspy_triage_compiler
 from app.agents.langgraph_soc_commander import langgraph_soc_commander
 from app.api.v1.presets import APT_SIMULATION_PRESETS
 from app.core.config import settings

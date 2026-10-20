@@ -1,11 +1,11 @@
 """Hybrid Deep Learning & Classical ML SOC Engine: PyTorch Autoencoder/Attention, XGBoost & IsolationForest."""
 
 import numpy as np
+import torch
+import torch.nn as nn
 from sklearn.ensemble import IsolationForest
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
-import torch
-import torch.nn as nn
 from xgboost import XGBClassifier
 
 from app.core.logging import get_logger

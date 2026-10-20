@@ -1,11 +1,11 @@
 from app.agents.crewai_osint_hunter import (
-    CrewAIOSINTHunter,
     SOC_OSINT_CREW,
+    CrewAIOSINTHunter,
     crewai_osint_hunter,
 )
 from app.agents.dspy_triage_compiler import (
-    DSPySOCTriageCompiler,
     DSPY_COMPILED_SOC_INVARIANTS,
+    DSPySOCTriageCompiler,
     dspy_triage_compiler,
 )
 from app.agents.langgraph_soc_commander import (

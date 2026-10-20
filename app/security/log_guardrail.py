@@ -1,8 +1,8 @@
 """Zero-Trust SOC Log Guardrail: detects Log-Embedded Prompt Injections, Shannon entropy anomalies & PII."""
 
-from collections import Counter
 import math
 import re
+from collections import Counter
 
 from app.core.config import settings
 from app.core.logging import get_logger
