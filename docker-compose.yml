@@ -1,0 +1,53 @@
+services:
+  redis:
+    image: redis:7-alpine
+    container_name: aegis-soc-redis
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
+
+  aegis-backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: aegis-soc-fastapi
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000
+    ports:
+      - "8000:8000"
+    environment:
+      - APP_ENV=production
+      - DATABASE_URL=sqlite+aiosqlite:///./aegis_soc_telemetry.db
+      - REDIS_URL=redis://redis:6379/0
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - CELERY_RESULT_BACKEND=redis://redis:6379/1
+      - CELERY_TASK_ALWAYS_EAGER=False
+    depends_on:
+      - redis
+    restart: unless-stopped
+
+  aegis-celery-worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: aegis-soc-celery-worker
+    command: celery -A app.workers.celery_app.celery_app worker --loglevel=info
+    environment:
+      - REDIS_URL=redis://redis:6379/0
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - CELERY_RESULT_BACKEND=redis://redis:6379/1
+      - CELERY_TASK_ALWAYS_EAGER=False
+    depends_on:
+      - redis
+    restart: unless-stopped
+
+  aegis-gradio-lab:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: aegis-soc-gradio-lab
+    command: python ui/gradio_soc_lab.py
+    ports:
+      - "7860:7860"
+    depends_on:
+      - aegis-backend
+    restart: unless-stopped

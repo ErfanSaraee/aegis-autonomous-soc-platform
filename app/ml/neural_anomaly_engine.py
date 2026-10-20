@@ -173,7 +173,7 @@ class NeuralSOCAnomalyEngine:
         )
         tokens, token_tensor = soc_feature_extractor.tokenize_for_pytorch(
             raw_log)
-        feat_tensor = torch.tensor([vec_8d], dtype=torch.float32)
+        feat_tensor = torch.from_numpy(vec_8d).unsqueeze(0)
 
         with torch.no_grad():
             recon_t, attn_prob_t, attn_weights_t = self.pytorch_net(

@@ -1,0 +1,55 @@
+name: AEGIS Autonomous SOC — CI/CD Pipeline
+
+on:
+  push:
+    branches: ["main", "master"]
+  pull_request:
+    branches: ["main", "master"]
+
+jobs:
+  backend-pytest-and-lint:
+    name: Python 3.11 Backend, PyTorch, LangGraph & FastMCP Suite
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install uv Package Manager
+        uses: astral-sh/setup-uv@v3
+
+      - name: Set up Python 3.11
+        run: uv python install 3.11
+
+      - name: Install Backend Dependencies
+        run: |
+          uv venv --python 3.11
+          uv pip install -r requirements.txt
+
+      - name: Run Ruff Static Linter
+        run: uv run ruff check app tests
+
+      - name: Execute End-to-End Pytest Verification Suite
+        env:
+          APP_ENV: testing
+        run: uv run pytest -v
+
+  frontend-nextjs-typecheck:
+    name: Next.js 14 TypeScript & Tailwind Verification
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./frontend
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install Frontend Dependencies
+        run: npm install
+
+      - name: Run TypeScript Compiler Check
+        run: npm run typecheck
