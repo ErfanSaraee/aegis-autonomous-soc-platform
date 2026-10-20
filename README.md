@@ -82,7 +82,7 @@ $$H(X) = -\sum_{c \in \Sigma} P(c) \log_2 P(c)$$
 ### 3. Hybrid MITRE ATT&CK RAG via Reciprocal Rank Fusion (`app/rag/`)
 Combines **Dense Semantic Embeddings** (compatible with `pgvector`, `Pinecone.io`, and `ChromaDB`) with **Okapi BM25** lexical scoring using **Reciprocal Rank Fusion ($k=60$)**:
 
-$$\text{RRF\_Score}(d \in D) = \frac{1}{k + \text{rank}_{\text{Dense}}(d)} + \frac{1}{k + \text{rank}_{\text{BM25}}(d)}$$
+$$\text{RRF}_{\text{Score}}(d \in D) = \frac{1}{k + \text{rank}_{\text{Dense}}(d)} + \frac{1}{k + \text{rank}_{\text{BM25}}(d)}$$
 
 ### 4. CrewAI OSINT Threat Hunters & DSPy False-Positive Compiler (`app/agents/`)
 * **CrewAI 3-Agent Crew:** Correlates source IPs against Tor/C2 feeds, ASN registries, and CISA/NVD CVE advisories.
